@@ -1,5 +1,12 @@
 /**
- * Created by hermes on 10.11.2015.
+ * Created on 10.11.2015.
  */
-public class Operator {
+abstract public class Operator {
+    String code;
+    public Operator(String code)
+    {
+        this.code = code;
+    }
+
+    abstract public void exec(Interpreter intrpr);
 }
