@@ -17,7 +17,24 @@ public class Interpreter {
         curLine = line;
     }
     public void parse(String line) {
-        String[] parsed = line.split(" ");
+        if(line.equalsIgnoreCase("RUN"))
+        {
+            this.run();
+            return;
+        }
+        if(line.equalsIgnoreCase("LIST"))
+        {
+            for(int iter:code.keySet()) {
+                System.out.println(iter + " " + code.get(iter));
+            }
+            return;
+        }
+        String[] parts = line.split(" ");
+        int lineNum = Integer.parseInt(parts[0]);
+        String opName = parts[1];
+
+        OperatorFactory.createOperator(opName, line.substring(parts[0].length() + parts[1].length() + 2));
+
     }
 
     public Map<String, Double> getVars()
