@@ -13,10 +13,10 @@ public class OperatorFactory {
         ops.put("PRINT", Print.class);
     }
 
-    public static void createOperator(String opName, String substring) {
+    public static Operator createOperator(String opName, String substring) {
         Class opClass = ops.get(opName);
         try {
-            opClass.getConstructor(String.class).newInstance(substring);
+            return (Operator) opClass.getConstructor(String.class).newInstance(substring);
         } catch (InstantiationException e) {
             throw new RuntimeException(e);
         } catch (IllegalAccessException e) {
