@@ -1,3 +1,4 @@
+import javax.script.Bindings;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -12,6 +13,7 @@ public class Expression
 	{
 		ScriptEngineManager mgr = new ScriptEngineManager();
 		ScriptEngine engine = mgr.getEngineByName("JavaScript");
+		vars.forEach((k, v) -> engine.put(k, v));
 		return engine.eval(code);
 	}
 }

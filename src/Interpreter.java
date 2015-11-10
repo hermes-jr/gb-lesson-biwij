@@ -11,9 +11,9 @@ public class Interpreter
 	/**
 	 * Interpreter: "I do all the work!"
 	 */
-	TreeMap<Integer, Operator> code = new TreeMap<>();
-	Map<String, Double> vars = new HashMap<>();
-	Integer curLine;
+	private TreeMap<Integer, Operator> code = new TreeMap<>();
+	private Map<String, Double> vars = new HashMap<>();
+	private Integer curLine;
 
 	public void next()
 	{
@@ -65,7 +65,7 @@ public class Interpreter
 			int lineNum = Integer.parseInt(parts[0]);
 			String opName = parts[1];
 
-			Operator op = OperatorFactory.createOperator(opName, line.substring(parts[0].length() + parts[1].length() + 2));
+			Operator op = OperatorFactory.createOperator(opName.toUpperCase(), line.substring(parts[0].length() + parts[1].length() + 2));
 			code.put(lineNum, op);
 		}
 		catch (RuntimeException e)
