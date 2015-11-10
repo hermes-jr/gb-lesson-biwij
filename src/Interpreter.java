@@ -33,7 +33,8 @@ public class Interpreter {
         int lineNum = Integer.parseInt(parts[0]);
         String opName = parts[1];
 
-        OperatorFactory.createOperator(opName, line.substring(parts[0].length() + parts[1].length() + 2));
+        Operator op = OperatorFactory.createOperator(opName, line.substring(parts[0].length() + parts[1].length() + 2));
+        code.put(lineNum, op);
 
     }
 
