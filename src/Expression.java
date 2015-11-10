@@ -13,7 +13,15 @@ public class Expression
 	{
 		ScriptEngineManager mgr = new ScriptEngineManager();
 		ScriptEngine engine = mgr.getEngineByName("JavaScript");
+		// Pass stored variables to JS engine
 		vars.forEach((k, v) -> engine.put(k, v));
-		return engine.eval(code);
+		// Evaluate
+		Object ret = engine.eval(code);
+		// Get them back
+		for (String key : vars.keySet())
+		{
+			vars.put(key, Double.parseDouble(engine.get(key).toString()));
+		}
+		return ret;
 	}
 }
