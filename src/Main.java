@@ -11,6 +11,7 @@ public class Main
 		Interpreter interpreter = new Interpreter();
 		while (true)
 		{
+			System.out.print("biwij> ");
 			String line = scanner.nextLine();
 			if(line.equalsIgnoreCase("QUIT")) break;
 			interpreter.parse(line);
