@@ -8,5 +8,10 @@ abstract public class Operator {
         this.code = code;
     }
 
+    @Override
+    public String toString() {
+        return getClass().getName() + " " + code;
+    }
+
     abstract public void exec(Interpreter intrpr);
 }
