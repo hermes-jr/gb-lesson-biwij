@@ -11,11 +11,13 @@ public class Interpreter {
     Integer curLine;
 
     public void next() {
+        curLine = code.higherKey(curLine);
     }
     public void goTo(int line) {
         curLine = line;
     }
     public void parse(String line) {
+        String[] parsed = line.split(" ");
     }
 
     public Map<String, Double> getVars()
@@ -23,4 +25,14 @@ public class Interpreter {
         return vars;
     }
 
+    public void run()
+    {
+        curLine = code.firstKey();
+        while(true)
+        {
+            Operator oper = code.get(curLine);
+            oper.exec(this);
+            if(curLine == null) break;
+        }
+    }
 }
