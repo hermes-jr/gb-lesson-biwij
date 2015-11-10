@@ -21,7 +21,8 @@ public class Print extends Operator
 		}
 		catch (ScriptException e)
 		{
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println(code);
 		}
 		intrpr.next();
 	}
