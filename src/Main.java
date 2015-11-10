@@ -12,6 +12,7 @@ public class Main
 		while (true)
 		{
 			String line = scanner.nextLine();
+			if(line.equalsIgnoreCase("QUIT")) break;
 			interpreter.parse(line);
 		}
 	}

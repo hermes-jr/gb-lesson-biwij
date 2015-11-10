@@ -13,7 +13,7 @@ abstract public class Operator
 	@Override
 	public String toString()
 	{
-		return getClass().getName() + " " + code;
+		return getClass().getName().toUpperCase() + " " + code;
 	}
 
 	abstract public void exec(Interpreter intrpr);
