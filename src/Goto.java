@@ -9,7 +9,7 @@ public class GoTo extends Operator
 	public void exec(Interpreter intrpr)
 	{
 		/**
-		 * GoTo
+		 * Simple GOTO
 		 */
 		intrpr.goTo(Integer.parseInt(code.toString()));
 	}
