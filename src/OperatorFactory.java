@@ -15,6 +15,7 @@ public class OperatorFactory
 		ops.put("LET", Let.class);
 		ops.put("IF", If.class);
 		ops.put("REM", Rem.class);
+		ops.put("GOTO", GoTo.class);
 	}
 
 	public static Operator createOperator(String opName, String substring)

@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -5,15 +9,17 @@ import java.util.Scanner;
  */
 public class Main
 {
-	public static void main(String args[])
+	public static void main(String args[]) throws IOException
 	{
-		Scanner scanner = new Scanner(System.in);
+		BufferedReader fr = new BufferedReader(new FileReader("src./quad.bas"));
+		// Scanner scanner = new Scanner(System.in);
 		Interpreter interpreter = new Interpreter();
 		while (true)
 		{
-			System.out.print("biwij> ");
-			String line = scanner.nextLine();
-			if(line.equalsIgnoreCase("QUIT")) break;
+			// System.out.print("biwij> ");
+			// String line = scanner.nextLine();
+			String line = fr.readLine();
+			if(line == null || line.equalsIgnoreCase("QUIT")) break;
 			interpreter.parse(line);
 		}
 	}
