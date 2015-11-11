@@ -1,11 +1,11 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
 /**
  * Created on 10.11.2015.
+ * The author of most of the code is Stepan Yakovenko
  */
 public class Main
 {
