@@ -13,7 +13,7 @@ public class Interpreter
 	 */
 	private TreeMap<Integer, Operator> code = new TreeMap<>();
 	private Map<String, Double> vars = new HashMap<>();
-	private Integer curLine;
+	private Integer curLine = 0;
 
 	public void next()
 	{
@@ -23,12 +23,19 @@ public class Interpreter
 		curLine = code.higherKey(curLine);
 	}
 
-	public void goTo(int line)
+	public void goTo(Integer line)
 	{
 		/**
 		 * GoTo specific line of code
 		 */
-		curLine = line;
+		if(code.containsKey(line))
+		{
+			curLine = line;
+		}
+		else
+		{
+			System.err.println("No such line for goTo: " + line);
+		}
 	}
 
 	public void parse(String line)
@@ -62,6 +69,10 @@ public class Interpreter
 		{
 			// Split current line to parts and create an Operator class instance, passing parameters
 			String[] parts = line.split(" ");
+			if(parts.length < 2)
+			{
+				throw new RuntimeException();
+			}
 			int lineNum = Integer.parseInt(parts[0]);
 			String opName = parts[1];
 
@@ -70,7 +81,7 @@ public class Interpreter
 		}
 		catch (RuntimeException e)
 		{
-			System.err.println("Unknown operation");
+			ErrReporter.println(this.getLine(), "Unknown operation \"" + line + "\"" );
 		}
 
 	}
@@ -81,6 +92,11 @@ public class Interpreter
 		 * Getter for Map containing variables
 		 */
 		return vars;
+	}
+
+	public Integer getLine()
+	{
+		return this.curLine;
 	}
 
 	public void run()

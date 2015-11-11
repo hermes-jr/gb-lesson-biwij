@@ -11,14 +11,14 @@ public class Main
 {
 	public static void main(String args[]) throws IOException
 	{
-		BufferedReader fr = new BufferedReader(new FileReader("src./quad.bas"));
-		// Scanner scanner = new Scanner(System.in);
+		// BufferedReader fr = new BufferedReader(new FileReader("src./quad.bas"));
+		Scanner scanner = new Scanner(System.in);
 		Interpreter interpreter = new Interpreter();
 		while (true)
 		{
-			// System.out.print("biwij> ");
-			// String line = scanner.nextLine();
-			String line = fr.readLine();
+			System.out.print("biwij> ");
+			String line = scanner.nextLine();
+			//String line = fr.readLine();
 			if(line == null || line.equalsIgnoreCase("QUIT")) break;
 			interpreter.parse(line);
 		}
