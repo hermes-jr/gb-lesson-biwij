@@ -1,7 +1,7 @@
 5 REM This file is for testing
-10 LET a=2
-20 LET b=50
-30 LET c=5
+10 LET a=1
+20 LET b=-2
+30 LET c=1
 40 LET d=b*b-4*a*c
 50 IF d>0 THEN GOTO 100
 60 IF d==0 THEN GOTO 200
